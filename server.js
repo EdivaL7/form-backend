@@ -52,6 +52,11 @@ app.get('/respostas.txt', (req, res) => {
   res.sendFile(FILE_PATH);
 });
 
+app.get('/limpar', (req, res) => {
+  fs.writeFileSync(FILE_PATH, '');
+  res.send('✔️ Arquivo respostas.txt foi LIMPO!');
+});
+
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
